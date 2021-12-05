@@ -1,8 +1,11 @@
-pub fn run(input: Vec<u32>) {
-    // Open file
+pub fn run(input: String) {
+    let numbers: Vec<u32> = input
+        .split_whitespace()
+        .map(|x| x.parse().unwrap())
+        .collect();
 
     let val = |n| {
-        input
+        numbers
             .windows(n)
             .map(|v| v.iter().sum::<u32>())
             .collect::<Vec<u32>>()
